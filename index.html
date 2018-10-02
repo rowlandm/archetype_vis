@@ -104,12 +104,17 @@ function render() {
     ]
   );
   game.enter().append('g').classed('game', 1);
+
+
+  // I know I'm calling to append the text twice but haven't worked out how to stop it repeating otherwise
   game
     .attr("class", function(d) { return d3.select(this).attr("class") + " " + d[0].className; })
     .attr('transform', function(d, i) { return 'translate('+(+ 90 + (i * 1.2 * cfg.w))+','+ (cfg.h) +')'; })
     .call(chart).append("text").text(function(d) {return d[0].className});
 
   game.enter().call(chart).append("text").text(function(d) {return d[0].className});
+
+
 
   setTimeout(render, 1000);
 }
