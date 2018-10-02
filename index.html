@@ -35,35 +35,7 @@ body {
 <script src="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.js"></script>
 
 <script>
-RadarChart.defaultConfig.color = function() {};
-RadarChart.defaultConfig.radius = 3;
-RadarChart.defaultConfig.w = 900;
-RadarChart.defaultConfig.h = 900;
-</script>
-
-<span></span>
-
-<script>
-
-
-
-</script>
-
-<script>
-var chart = RadarChart.chart();
-var cfg = chart.config(); // retrieve default config
-var svg = d3.select('body').append('svg')
-  .attr('width', cfg.w *2)
-  .attr('height', cfg.h *10);
-
-
-divisor=2;
-
-// many radars
-chart.config({w: cfg.w / divisor, h: cfg.h / divisor, axisText: true, levels: 3, circles: true});
-cfg = chart.config();
-function render() {
-  var game = svg.selectAll('g.game').data(
+researcher_data = 
     [
 
         [
@@ -209,6 +181,23 @@ function render() {
           }
         ],
 
+        [
+          {
+            className: 'arts_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 3},  
+              {axis: "data_size", value: 1}, 
+              {axis: "data_preprocessed", value: 3}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 2},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "complexity_of_analysis_and_tools", value: 1},  
+              {axis: "awareness_of_central_options", value: 2}
+            ]
+          }
+        ],
+
  
         [
           {
@@ -246,8 +235,38 @@ function render() {
 
 
 
-    ]
-  );
+    ];
+
+
+RadarChart.defaultConfig.color = function() {};
+RadarChart.defaultConfig.radius = 3;
+RadarChart.defaultConfig.w = 900;
+RadarChart.defaultConfig.h = 900;
+</script>
+
+<span></span>
+
+<script>
+
+
+
+</script>
+
+<script>
+var chart = RadarChart.chart();
+var cfg = chart.config(); // retrieve default config
+var svg = d3.select('body').append('svg')
+  .attr('width', cfg.w *2)
+  .attr('height', cfg.h *researcher_data.length);
+
+
+divisor=2;
+
+// many radars
+chart.config({w: cfg.w / divisor, h: cfg.h / divisor, axisText: true, levels: 3, circles: true});
+cfg = chart.config();
+function render() {
+  var game = svg.selectAll('g.game').data(researcher_data);
   game.enter().append('g').classed('game', 1);
 
 
