@@ -53,7 +53,7 @@ RadarChart.defaultConfig.h = 900;
 var chart = RadarChart.chart();
 var cfg = chart.config(); // retrieve default config
 var svg = d3.select('body').append('svg')
-  .attr('width', 5000)
+  .attr('width', 8000)
   .attr('height', cfg.h + cfg.h / 4);
 
 
@@ -76,7 +76,7 @@ function render() {
               {axis: "data_size", value: 2}, 
               {axis: "data_security", value: 3}, 
               {axis: "data_management", value: 2},  
-              {axis: "data_retention_time", value: 3},  
+              {axis: "data_retention", value: 3},  
               {axis: "hpc_gpu", value: 2},  
               {axis: "training", value: 2},  
               {axis: "complexity_of_analysis_and_tools", value: 3},  
@@ -91,7 +91,7 @@ function render() {
               {axis: "data_size", value: 3}, 
               {axis: "data_security", value: 2}, 
               {axis: "data_management", value: 1},  
-              {axis: "data_retention_time", value: 3},  
+              {axis: "data_retention", value: 3},  
               {axis: "hpc_gpu", value: 3},  
               {axis: "training", value: 3},  
               {axis: "complexity_of_analysis_and_tools", value: 2},  
@@ -106,7 +106,7 @@ function render() {
               {axis: "data_size", value: 2}, 
               {axis: "data_security", value: 1}, 
               {axis: "data_management", value: 1},  
-              {axis: "data_retention_time", value: 3},  
+              {axis: "data_retention", value: 3},  
               {axis: "hpc_gpu", value: 1},  
               {axis: "training", value: 3},  
               {axis: "complexity_of_analysis_and_tools", value: 1},  
@@ -121,7 +121,7 @@ function render() {
               {axis: "data_size", value: 1}, 
               {axis: "data_security", value: 2}, 
               {axis: "data_management", value: 1},  
-              {axis: "data_retention_time", value: 3},  
+              {axis: "data_retention", value: 3},  
               {axis: "hpc_gpu", value: 1},  
               {axis: "training", value: 3},  
               {axis: "complexity_of_analysis_and_tools", value: 1},  
@@ -136,11 +136,113 @@ function render() {
               {axis: "data_size", value: 1}, 
               {axis: "data_security", value: 1}, 
               {axis: "data_management", value: 1},  
-              {axis: "data_retention_time", value: 3},  
+              {axis: "data_retention", value: 3},  
               {axis: "hpc_gpu", value: 1},  
               {axis: "training", value: 2},  
               {axis: "complexity_of_analysis_and_tools", value: 1},  
               {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
+        ],
+        [
+          {
+            className: 'law_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 1},  
+              {axis: "data_size", value: 1}, 
+              {axis: "data_preprocessed", value: 3}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "complexity_of_analysis_and_tools", value: 1},  
+              {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
+        ],
+        [
+          {
+            className: 'architecture_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 2},  
+              {axis: "data_size", value: 2}, 
+              {axis: "data_preprocessed", value: 3}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "complexity_of_analysis_and_tools", value: 2},  
+              {axis: "awareness_of_central_options", value: 2}
+            ]
+          }
+        ],
+
+
+        [
+          {
+            className: 'fine_arts_video_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 3},  
+              {axis: "data_size", value: 2}, 
+              {axis: "data_preprocessed", value: 1}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "complexity_of_analysis_and_tools", value: 1},  
+              {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
+        ],
+
+        [
+          {
+            className: 'economics_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 2},  
+              {axis: "data_size", value: 1}, 
+              {axis: "data_preprocessed", value: 3}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "complexity_of_analysis_and_tools", value: 2},  
+              {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
+        ],
+
+ 
+        [
+          {
+            className: 'education_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 1},  
+              {axis: "data_size", value: 1}, 
+              {axis: "data_preprocessed", value: 1}, 
+              {axis: "data_security", value: 2}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "complexity_of_analysis_and_tools", value: 2},  
+              {axis: "awareness_of_central_options", value: 2}
+            ]
+          }
+        ],
+
+        [
+          {
+            className: 'bioinformatician_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 1},  
+              {axis: "data_size", value: 3}, 
+              {axis: "data_preprocessed", value: 1}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 3},  
+              {axis: "awareness_of_central_options", value: 2}
             ]
           }
         ]
@@ -155,7 +257,7 @@ function render() {
   // I know I'm calling to append the text twice but haven't worked out how to stop it repeating otherwise
   game
     .attr("class", function(d) { return d3.select(this).attr("class") + " " + d[0].className; })
-    .attr('transform', function(d, i) { return 'translate('+(+ 90 + (i * 1.2 * cfg.w))+','+ (cfg.h) +')'; })
+    .attr('transform', function(d, i) { return 'translate('+(+ 90 + (i * 1.2 * cfg.w))+','+ (cfg.h/6) +')'; })
     .call(chart).append("text").text(function(d) {return d[0].className});
 
   game.enter().call(chart).append("text").text(function(d) {return d[0].className});
