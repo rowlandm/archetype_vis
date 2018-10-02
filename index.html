@@ -44,37 +44,6 @@ RadarChart.defaultConfig.h = 900;
 <span></span>
 
 <script>
-var data = [
-  {
-    className: 'melbourne_institute', // optional can be used for styling
-    axes: [
-      {axis: "data_size", value: 2}, 
-      {axis: "data_security", value: 3}, 
-      {axis: "data_management", value: 2},  
-      {axis: "data_retention_time", value: 3},  
-      {axis: "hpc_gpu", value: 2},  
-      {axis: "training", value: 2},  
-      {axis: "complexity_of_analysis_and_tools", value: 3},  
-      {axis: "awareness_of_central_options", value: 1}
-    ]
-  }
-];
-
-var data2 = [
-  {
-    className: 'mcrip', // optional can be used for styling
-    axes: [
-      {axis: "data_size", value: 2}, 
-      {axis: "data_security", value: 1}, 
-      {axis: "data_management", value: 2},  
-      {axis: "data_retention_time", value: 3},  
-      {axis: "hpc_gpu", value: 1},  
-      {axis: "training", value: 3},  
-      {axis: "complexity_of_analysis_and_tools", value: 1},  
-      {axis: "awareness_of_central_options", value: 2}
-    ]
-  }
-];
 
 
 
@@ -84,7 +53,7 @@ var data2 = [
 var chart = RadarChart.chart();
 var cfg = chart.config(); // retrieve default config
 var svg = d3.select('body').append('svg')
-  .attr('width', cfg.w + cfg.w + 50)
+  .attr('width', 5000)
   .attr('height', cfg.h + cfg.h / 4);
 
 
@@ -99,8 +68,85 @@ cfg = chart.config();
 function render() {
   var game = svg.selectAll('g.game').data(
     [
-        data,
-        data2
+
+        [
+          {
+            className: 'melbourne_institute', // optional can be used for styling
+            axes: [
+              {axis: "data_size", value: 2}, 
+              {axis: "data_security", value: 3}, 
+              {axis: "data_management", value: 2},  
+              {axis: "data_retention_time", value: 3},  
+              {axis: "hpc_gpu", value: 2},  
+              {axis: "training", value: 2},  
+              {axis: "complexity_of_analysis_and_tools", value: 3},  
+              {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
+        ],
+        [
+          {
+            className: 'advanced microscopy', // optional can be used for styling
+            axes: [
+              {axis: "data_size", value: 3}, 
+              {axis: "data_security", value: 2}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention_time", value: 3},  
+              {axis: "hpc_gpu", value: 3},  
+              {axis: "training", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 2},  
+              {axis: "awareness_of_central_options", value: 2}
+            ]
+          }
+        ],
+        [        
+          {
+            className: 'scip', // optional can be used for styling
+            axes: [
+              {axis: "data_size", value: 2}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention_time", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "training", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 1},  
+              {axis: "awareness_of_central_options", value: 3}
+            ]
+          }
+        ],
+        [        
+          {
+            className: 'bio21_platforms', // optional can be used for styling
+            axes: [
+              {axis: "data_size", value: 1}, 
+              {axis: "data_security", value: 2}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention_time", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "training", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 1},  
+              {axis: "awareness_of_central_options", value: 2}
+            ]
+          }
+        ],
+        [
+          {
+            className: 'law', // optional can be used for styling
+            axes: [
+              {axis: "data_size", value: 1}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention_time", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "training", value: 2},  
+              {axis: "complexity_of_analysis_and_tools", value: 1},  
+              {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
+        ]
+
+
+
     ]
   );
   game.enter().append('g').classed('game', 1);
