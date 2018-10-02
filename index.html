@@ -53,11 +53,8 @@ RadarChart.defaultConfig.h = 900;
 var chart = RadarChart.chart();
 var cfg = chart.config(); // retrieve default config
 var svg = d3.select('body').append('svg')
-  .attr('width', 8000)
-  .attr('height', cfg.h + cfg.h / 4);
-
-
-//svg.append('g').classed('single', 1).datum(data).call(chart);
+  .attr('width', cfg.w *2)
+  .attr('height', cfg.h *10);
 
 
 divisor=2;
@@ -257,7 +254,7 @@ function render() {
   // I know I'm calling to append the text twice but haven't worked out how to stop it repeating otherwise
   game
     .attr("class", function(d) { return d3.select(this).attr("class") + " " + d[0].className; })
-    .attr('transform', function(d, i) { return 'translate('+(+ 90 + (i * 1.2 * cfg.w))+','+ (cfg.h/6) +')'; })
+    .attr('transform', function(d, i) { return 'translate('+( (cfg.w))+','+ (90 + cfg.h * i * 1.2) +')'; })
     .call(chart).append("text").text(function(d) {return d[0].className});
 
   game.enter().call(chart).append("text").text(function(d) {return d[0].className});
