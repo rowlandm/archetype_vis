@@ -94,7 +94,7 @@ var svg = d3.select('body').append('svg')
 divisor=2;
 
 // many radars
-chart.config({w: cfg.w / divisor, h: cfg.h / divisor, axisText: true, levels: 0, circles: true});
+chart.config({w: cfg.w / divisor, h: cfg.h / divisor, axisText: true, levels: 3, circles: true});
 cfg = chart.config();
 function render() {
   var game = svg.selectAll('g.game').data(
