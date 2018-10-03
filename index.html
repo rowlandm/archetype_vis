@@ -266,6 +266,25 @@ researcher_data =
               {axis: "awareness_of_central_options", value: 2}
             ]
           }
+        ],
+
+
+
+        [
+          {
+            className: 'template researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 1},  
+              {axis: "data_size", value: 3}, 
+              {axis: "data_preprocessed", value: 1}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 3},  
+              {axis: "awareness_of_central_options", value: 2}
+            ]
+          }
         ]
 
 
@@ -275,8 +294,8 @@ researcher_data =
 
 RadarChart.defaultConfig.color = function() {};
 RadarChart.defaultConfig.radius = 3;
-RadarChart.defaultConfig.w = 900;
-RadarChart.defaultConfig.h = 900;
+RadarChart.defaultConfig.w = 450;
+RadarChart.defaultConfig.h = 450;
 </script>
 
 <span></span>
@@ -288,17 +307,17 @@ RadarChart.defaultConfig.h = 900;
 </script>
 
 <script>
+var height_multiplier = 1.2;
 var chart = RadarChart.chart();
 var cfg = chart.config(); // retrieve default config
 var svg = d3.select('body').append('svg')
-  .attr('width', cfg.w *2)
-  .attr('height', cfg.h *researcher_data.length);
+  .attr('width', cfg.w*2 )
+  .attr('height', cfg.h *height_multiplier *researcher_data.length);
 
 
-divisor=2;
 
 // many radars
-chart.config({w: cfg.w / divisor, h: cfg.h / divisor, axisText: true, levels: 3, circles: true});
+chart.config({w: cfg.w, h: cfg.h , axisText: true, levels: 3, circles: true});
 cfg = chart.config();
 function render() {
   var game = svg.selectAll('g.game').data(researcher_data);
@@ -308,7 +327,7 @@ function render() {
   // I know I'm calling to append the text twice but haven't worked out how to stop it repeating otherwise
   game
     .attr("class", function(d) { return d3.select(this).attr("class") + " " + d[0].className; })
-    .attr('transform', function(d, i) { return 'translate('+( (cfg.w))+','+ (90 + cfg.h * i * 1.2) +')'; })
+    .attr('transform', function(d, i) { return 'translate('+( (cfg.w))+','+ (90 + cfg.h * i * height_multiplier) +')'; })
     .call(chart).append("text").text(function(d) {return d[0].className});
 
   game.enter().call(chart).append("text").text(function(d) {return d[0].className});
