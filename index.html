@@ -45,7 +45,7 @@ researcher_data =
 
         [
           {
-            className: 'template', // optional can be used for styling
+            className: 'template platform', // optional can be used for styling
             axes: [
               {axis: "data_size", value: 3}, 
               {axis: "data_security", value: 3}, 
@@ -58,6 +58,26 @@ researcher_data =
             ]
           }
         ],
+
+
+
+        [
+          {
+            className: 'template researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 1},  
+              {axis: "data_size", value: 3}, 
+              {axis: "data_preprocessed", value: 1}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 3},  
+              {axis: "awareness_of_central_options", value: 2}
+            ]
+          }
+        ],
+
         [
           {
             className: 'mnc_it', // optional can be used for styling
@@ -266,27 +286,7 @@ researcher_data =
               {axis: "awareness_of_central_options", value: 2}
             ]
           }
-        ],
-
-
-
-        [
-          {
-            className: 'template researcher', // optional can be used for styling
-            axes: [
-              {axis: "data_presentation_publicly", value: 1},  
-              {axis: "data_size", value: 3}, 
-              {axis: "data_preprocessed", value: 1}, 
-              {axis: "data_security", value: 1}, 
-              {axis: "data_management", value: 1},  
-              {axis: "data_retention", value: 3},  
-              {axis: "hpc_gpu", value: 3},  
-              {axis: "complexity_of_analysis_and_tools", value: 3},  
-              {axis: "awareness_of_central_options", value: 2}
-            ]
-          }
         ]
-
 
 
     ];
@@ -307,7 +307,8 @@ RadarChart.defaultConfig.h = 450;
 </script>
 
 <script>
-var height_multiplier = 1.2;
+var height_multiplier = 1.5;
+var initial_height_gap = 90;
 var chart = RadarChart.chart();
 var cfg = chart.config(); // retrieve default config
 var svg = d3.select('body').append('svg')
@@ -327,7 +328,7 @@ function render() {
   // I know I'm calling to append the text twice but haven't worked out how to stop it repeating otherwise
   game
     .attr("class", function(d) { return d3.select(this).attr("class") + " " + d[0].className; })
-    .attr('transform', function(d, i) { return 'translate('+( (cfg.w))+','+ (90 + cfg.h * i * height_multiplier) +')'; })
+    .attr('transform', function(d, i) { return 'translate('+( (cfg.w))+','+ (initial_height_gap + cfg.h * i * height_multiplier) +')'; })
     .call(chart).append("text").text(function(d) {return d[0].className});
 
   game.enter().call(chart).append("text").text(function(d) {return d[0].className});
