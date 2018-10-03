@@ -29,6 +29,11 @@ body {
   stroke: none;
 }
 
+.template .circle, .template .area {
+  fill: none;
+  stroke: none;
+}
+
 </style>
 
 <script src="http://d3js.org/d3.v3.js"></script>
@@ -38,6 +43,21 @@ body {
 researcher_data = 
     [
 
+        [
+          {
+            className: 'template', // optional can be used for styling
+            axes: [
+              {axis: "data_size", value: 3}, 
+              {axis: "data_security", value: 3}, 
+              {axis: "data_management", value: 2},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 3},  
+              {axis: "training", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 3},  
+              {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
+        ],
         [
           {
             className: 'mnc_it', // optional can be used for styling
