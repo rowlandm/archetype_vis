@@ -306,11 +306,18 @@ RadarChart.defaultConfig.h = 450;
 
 Ratings:
 
-<ol>Data Size
+<ol>Data Size (Individual researchers)
 <li>Less than tens of Gigabytes of data</li>
-<li>Tens of Gigabytes of data</li>
-<li>Terabytes of data</li>
+<li>Tens of Gigabytes of data up to Terabytes of data</li>
+<li>Terabytes of data or more</li>
 </ol>
+
+<ol>Data Size (Platforms)
+<li>Less than hundreds of Gigabytes of data</li>
+<li>Hundreds of Gigabytes of data up to Terabytes of data</li>
+<li>Tens of Terabytes of data</li>
+</ol>
+
 
 <ol>Data Security
 <li>Public data</li>
@@ -371,12 +378,12 @@ Ratings:
 
 
 <script>
-var height_multiplier = 1.5;
+var height_multiplier = 2.3; // to adjust for the page
 var initial_height_gap = 90;
 var chart = RadarChart.chart();
 var cfg = chart.config(); // retrieve default config
 var svg = d3.select('body').append('svg')
-  .attr('width', cfg.w*2 )
+  .attr('width', cfg.w*1.5 )
   .attr('height', cfg.h *height_multiplier *researcher_data.length);
 
 
@@ -392,7 +399,7 @@ function render() {
   // I know I'm calling to append the text twice but haven't worked out how to stop it repeating otherwise
   game
     .attr("class", function(d) { return d3.select(this).attr("class") + " " + d[0].className; })
-    .attr('transform', function(d, i) { return 'translate('+( (cfg.w))+','+ (initial_height_gap + cfg.h * i * height_multiplier) +')'; })
+    .attr('transform', function(d, i) { return 'translate('+( 10)+','+ (initial_height_gap + cfg.h * i * height_multiplier) +')'; })
     .call(chart).append("text").text(function(d) {return d[0].className});
 
   game.enter().call(chart).append("text").text(function(d) {return d[0].className});
