@@ -40,6 +40,11 @@ body {
 <script src="https://rawgit.com/tpreusse/radar-chart-d3/master/src/radar-chart.js"></script>
 
 <script>
+RadarChart.defaultConfig.color = function() {};
+RadarChart.defaultConfig.radius = 3;
+RadarChart.defaultConfig.w = 450;
+RadarChart.defaultConfig.h = 455;
+
 researcher_data = 
     [
 
@@ -77,6 +82,23 @@ researcher_data =
             ]
           }
         ],
+
+        [
+          {
+            className: 'proteomics_bio21', // optional can be used for styling
+            axes: [
+              {axis: "data_size", value: 2}, 
+              {axis: "data_security", value: 1}, 
+              {axis: "data_management", value: 2},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "training", value: 3},  
+              {axis: "complexity_of_analysis_and_tools", value: 3},  
+              {axis: "awareness_of_central_options", value: 3}
+            ]
+          }
+        ],
+
 
         [
           {
@@ -199,6 +221,22 @@ researcher_data =
               {axis: "awareness_of_central_options", value: 1}
             ]
           }
+        ],        
+        [
+          {
+            className: 'law_nvivo_individual_researcher', // optional can be used for styling
+            axes: [
+              {axis: "data_presentation_publicly", value: 1},  
+              {axis: "data_size", value: 1}, 
+              {axis: "data_preprocessed", value: 1}, 
+              {axis: "data_security", value: 2}, 
+              {axis: "data_management", value: 1},  
+              {axis: "data_retention", value: 3},  
+              {axis: "hpc_gpu", value: 1},  
+              {axis: "complexity_of_analysis_and_tools", value: 2},  
+              {axis: "awareness_of_central_options", value: 1}
+            ]
+          }
         ],
         [
           {
@@ -308,10 +346,6 @@ researcher_data =
     ];
 
 
-RadarChart.defaultConfig.color = function() {};
-RadarChart.defaultConfig.radius = 3;
-RadarChart.defaultConfig.w = 450;
-RadarChart.defaultConfig.h = 450;
 </script>
 
 <span></span>
